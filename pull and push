@@ -1,0 +1,12 @@
+#clone repo from github(website)
+#build image using below Dockerfile
+FROM ubuntu
+RUN apt update -y
+RUN apt install apache2 -y
+COPY index.html /var/www/html
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+
+# docker build -i internetbanking:v1 .
+# docker tag internetbanking:v1 kusumareddy049/ib-image
+# docker login  {use dockerhub credentials)
+# docker push kusumareddy049/ib-image
